@@ -49,7 +49,6 @@ public class PaymentServiceImpl implements PaymentService {
     }
 
     public String paymentInfo_timeoutHandler(Integer id) {
-        log.info("8001服务端超时了");
         return "线程池： " + Thread.currentThread().getName() + "  8001服务异常请稍后重试: " + id;
     }
 
