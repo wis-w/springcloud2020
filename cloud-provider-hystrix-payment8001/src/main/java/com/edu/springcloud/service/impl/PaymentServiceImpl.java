@@ -64,7 +64,7 @@ public class PaymentServiceImpl implements PaymentService {
     })
     public String paymentCircuitBreaker(@PathVariable("id") Integer id) {
         if(id < 0){
-            throw  new RuntimeException("****id 不能为负数");
+            throw  new RuntimeException("****id 不能为负数啊");
         }
 
         return Thread.currentThread().getName() + "\t" + "调用成功，流水号：" + UUID.randomUUID().toString().replace("-","");
