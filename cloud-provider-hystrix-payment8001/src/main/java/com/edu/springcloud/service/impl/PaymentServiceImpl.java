@@ -71,7 +71,7 @@ public class PaymentServiceImpl implements PaymentService {
     }
 
     public String paymentCircuitBreaker_fallback(@PathVariable("id") Integer id) {
-        return "8001服务端 id 不能为负数,请稍后再试， o(╥﹏╥)o id: " + id;
+        return "8001服务端 id 不能为负数,请稍后再试， o(╥_╥)o id: " + id;
     }
     //********** 服务熔断结束***************
 }
