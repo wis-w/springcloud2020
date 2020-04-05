@@ -1,0 +1,18 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: cloud-provider-hystrix-payment
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+#      defaultZone: http://eureka7001.com:7001/eureka/
+  instance:
+    instance-id: payment_8001   #eurake页面的显示信息
+    prefer-ip-address: true     #是否显示ip
+    lease-expiration-duration-in-seconds: 30   #默认30秒
+    lease-renewal-interval-in-seconds: 90  #等待心跳的时间上限
