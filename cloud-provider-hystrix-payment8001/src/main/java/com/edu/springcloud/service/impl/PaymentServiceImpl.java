@@ -49,6 +49,7 @@ public class PaymentServiceImpl implements PaymentService {
     }
 
     public String paymentInfo_timeoutHandler(Integer id) {
+        log.info("8001服务端超时了");
         return "线程池： " + Thread.currentThread().getName() + "  8001服务异常请稍后重试: " + id;
     }
 
@@ -70,7 +71,7 @@ public class PaymentServiceImpl implements PaymentService {
     }
 
     public String paymentCircuitBreaker_fallback(@PathVariable("id") Integer id) {
-        return "8001服务端id不能为负数,请稍后再试， o(╥_╥)o id: " + id;
+        return "8001服务端 id 不能为负数,请稍后再试， o(╥_╥)o id: " + id;
     }
     //********** 服务熔断结束***************
 }
