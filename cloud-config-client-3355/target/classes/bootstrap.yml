@@ -1,0 +1,31 @@
+#bootstrap.yml 系统及配置，优先于application.yml
+#application.yml是用户级别的配置文件
+server:
+  port: 3355
+
+spring:
+  application:
+    name: config-client
+  cloud:
+    #Config客户端配置
+    config:
+      label: master #分支名称
+      name: config #配置文件名称
+      profile: dev #读取后缀名称 上诉3个综合就是 master分支上 config-dev.yml
+      uri: http://localhost:3344    #查找3344上的github上的 master分支下的config-dev.yml文件
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+
+#暴露监控端口
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
