@@ -83,6 +83,11 @@ public class PaymentController {
             TimeUnit.SECONDS.sleep(3);
         return serverPort;
     }
+
+    @GetMapping(value = "/payment/zipkin")
+    public String paymentZipkin(){
+        return "进行信息采集了";
+    }
 }
 
 

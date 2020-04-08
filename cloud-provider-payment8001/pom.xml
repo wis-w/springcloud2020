@@ -25,6 +25,11 @@
     </build>
 
     <dependencies>
+        <!--zipkin-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+        </dependency>
 
         <!--web-->
         <dependency>
