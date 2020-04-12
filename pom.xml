@@ -51,9 +51,9 @@
     </properties>
 
     <!--之类继承之后提供作用：锁定版本+modlue不用写groupID与version-->
-    <dependencyManagement>
-        <dependencies>
 
+        <dependencyManagement>
+        <dependencies>
             <!--spring boot 2.2.2-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -62,7 +62,6 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
             <!--spring cloud Hoxton.SR1-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
@@ -71,7 +70,6 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
             <!--spring cloud alibaba 2.1.0.RELEASE-->
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
@@ -80,7 +78,6 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
             <!--mysql-->
             <dependency>
                 <groupId>mysql</groupId>
@@ -88,51 +85,43 @@
                 <version>${mysql.version}</version>
                 <scope>runtime</scope>
             </dependency>
-
             <!--druid-->
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid-spring-boot-starter</artifactId>
                 <version>${druid.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid</artifactId>
                 <version>${druid.version}</version>
             </dependency>
-
             <!--mybatis-->
             <dependency>
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
                 <version>${mybatis.spring.boot.version}</version>
             </dependency>
-
             <!--junit-->
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
                 <version>${junit.version}</version>
             </dependency>
-
             <!--log4j-->
             <dependency>
                 <groupId>log4j</groupId>
                 <artifactId>log4j</artifactId>
                 <version>${log4j.version}</version>
             </dependency>
-
             <!--lombok-->
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
-<!--                <version>${lombok.version}</version>-->
+                <!--                <version>${lombok.version}</version>-->
                 <version>1.18.12</version>
             </dependency>
-
-        </dependencies>
-    </dependencyManagement>
+        </dependencies></dependencyManagement>
 
     <build>
         <plugins>
