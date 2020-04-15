@@ -22,4 +22,10 @@ public class FlowLimitController {
         System.out.println(Thread.currentThread().getName()+"/t"+"...testB");
         return "------testB";
     }
+
+    @GetMapping("/testD")
+    public String testD(){
+        System.out.println("testD RT");
+        return "___testD";
+    }
 }
