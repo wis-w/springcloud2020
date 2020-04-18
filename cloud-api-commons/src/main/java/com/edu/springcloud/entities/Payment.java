@@ -1,20 +1,43 @@
 package com.edu.springcloud.entities;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-
 import java.io.Serializable;
 
-@Slf4j
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class Payment implements Serializable {
 
     private Long id;
     private String serial;
 
+    public Payment() {
+
+    }
+
+    @Override
+    public String toString() {
+        return "Payment{" +
+                "id=" + id +
+                ", serial='" + serial + '\'' +
+                '}';
+    }
+
+    public Payment(Long id, String serial) {
+        this.id = id;
+        this.serial = serial;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setSerial(String serial) {
+        this.serial = serial;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getSerial() {
+        return serial;
+    }
 }

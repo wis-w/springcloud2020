@@ -44,8 +44,8 @@ public class FlowLimitController {
     @GetMapping("/testHotKey")
     @SentinelResource(value = "testHotKey", blockHandler = "dealTestHotKey")// 开启热点限流 value可以为任意 并指定方案
     public String testHotKey(@RequestParam(value = "p1", required = false) String p1,
-                             @RequestParam(value = "p2", required = false) String p2) {
-        return "=--= HOSTKEY-";
+                             @RequestParam(value =  "p2", required = false) String p2) {
+        return "=--= HOSTKEY--success";
     }
 
     public String dealTestHotKey(String p1, String p2, BlockException exception) {// 参数列表
