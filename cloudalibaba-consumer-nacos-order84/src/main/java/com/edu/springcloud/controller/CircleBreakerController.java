@@ -4,6 +4,7 @@ import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.edu.springcloud.entities.CommonResult;
 import com.edu.springcloud.entities.Payment;
+import com.edu.springcloud.service.PaymentService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,9 +24,12 @@ public class CircleBreakerController {
     @Resource
     RestTemplate restTemplate;
 
+    @Resource
+    private PaymentService paymentService;
+
     @GetMapping("/consumer/fallback/{id}")
-    @SentinelResource(value = "fallback", fallback = "handlerFallBack",blockHandler = "blockHandler",
-                        exceptionsToIgnore = {IllegalArgumentException.class})// 排除java异常种类
+    @SentinelResource(value = "fallback", fallback = "handlerFallBack", blockHandler = "blockHandler",
+            exceptionsToIgnore = {IllegalArgumentException.class})// 排除java异常种类
 //    @SentinelResource(value = "fallback", blockHandler = "blockHandler")
     public CommonResult<Payment> fallback(@PathVariable Long id) {
         CommonResult<Payment> result = null;
@@ -39,15 +43,21 @@ public class CircleBreakerController {
         return result;
     }
 
-    public CommonResult<Payment> handlerFallBack(@PathVariable Long id,Throwable error){
+    public CommonResult<Payment> handlerFallBack(@PathVariable Long id, Throwable error) {
         Payment payment = new Payment(id, "null");
         CommonResult<Payment> result = new CommonResult<>(444, "我是fallback方案" + error.getMessage(), payment);
         return result;
     }
 
-    public CommonResult<Payment> blockHandler(@PathVariable Long id, BlockException error){
+    public CommonResult<Payment> blockHandler(@PathVariable Long id, BlockException error) {
         Payment payment = new Payment(id, "null");
         CommonResult<Payment> result = new CommonResult<>(555, "我是blockHandler方案" + error.getMessage(), payment);
         return result;
     }
+
+    @GetMapping(value = "/consumer/paymentSQL/{id}")
+    public CommonResult<Payment> paymentSQL(@PathVariable("id")Long id){
+        return paymentService.paymentSQL(id);
+    }
+
 }
