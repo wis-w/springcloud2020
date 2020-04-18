@@ -3,7 +3,6 @@ registry {
   type = "nacos"
 
   nacos {
-    #serverAddr = "localhost"
     serverAddr = "localhost:8848"
     namespace = ""
     cluster = "default"
